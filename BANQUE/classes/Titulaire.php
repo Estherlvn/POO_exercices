@@ -101,6 +101,7 @@ class Titulaire {
         $result .= "<td>" . $compte->getLibelle() . "</td>";
         $result .= "<td>" . $compte->getSoldeInitial() . "</td>";
         $result .= "<td>" . $compte->getDevise() . "</td>";
+
         $result .= "</tr>";
     }
     $result .= "</table>";

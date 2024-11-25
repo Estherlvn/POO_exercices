@@ -8,6 +8,8 @@ class Compte {
     private string $devise;
     private Titulaire $titulaire;
 
+    // constructeur
+
     public function __construct(string $libelle, float $soldeInitial, string $devise, Titulaire $titulaire) {
         $this->libelle = $libelle;
         $this->soldeInitial = $soldeInitial;

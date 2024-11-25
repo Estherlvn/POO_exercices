@@ -13,7 +13,7 @@ $mariaDomingo = new Titulaire("Domingo", "Maria", new DateTime("1990-01-01"),"Ma
 $andréMarchand = new Titulaire("Marchand", "André", new DateTime("1978-02-02"), "Bordeaux");
 
 // Création de plusieurs comptes
-$caisseGenerale = new Compte("Compte Courant", "1100", "€", $mariaDomingo);
+$Compte = new Compte("Compte Courant", "1100", "€", $mariaDomingo);
 $caisseEtranger = new Compte("Livret A", "8500", "€", $mariaDomingo);
 
 $caisseEpargne = new Compte("Compte Courant", "11330.55", "€", $andréMarchand);
