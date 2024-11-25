@@ -13,10 +13,10 @@ $mariaDomingo = new Titulaire("Domingo", "Maria", new DateTime("1990-01-01"),"Ma
 $andréMarchand = new Titulaire("Marchand", "André", new DateTime("1978-02-02"), "Bordeaux");
 
 // Création de plusieurs comptes
-$caisseGenerale = new Compte("18888885230E130", "1100", "€", $mariaDomingo);
-$caisseEtranger = new Compte("AME155555324558", "8500", "$", $mariaDomingo);
+$caisseGenerale = new Compte("Compte Courant", "1100", "€", $mariaDomingo);
+$caisseEtranger = new Compte("Livret A", "8500", "€", $mariaDomingo);
 
-$caisseEpargne = new Compte("BOR3333355411251", "11330.55", "€", $andréMarchand);
+$caisseEpargne = new Compte("Compte Courant", "11330.55", "€", $andréMarchand);
 
 // Afficher les comptes bancaires des titulaires
 echo $mariaDomingo->afficherComptesBancaires();
