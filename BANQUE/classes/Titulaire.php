@@ -91,20 +91,25 @@ class Titulaire {
     }
 
 
- // Afficher les comptes bancaires du titulaire en HTML (tableau)
- public function afficherComptesBancaires(): string {
-    $result = "<h2>Comptes bancaires de " . $this->nom . " " . $this->prenom . ":</h2>";
-    $result .= "<table border='1'>";
-    $result .= "<tr> <th>Libellé du compte</th><th>Solde initial</th><th>Devise</th> </tr>";
-    foreach ($this->comptes as $compte) {
-        $result .= "<tr>";
-        $result .= "<td>" . $compte->getLibelle() . "</td>";
-        $result .= "<td>" . $compte->getSoldeInitial() . "</td>";
-        $result .= "<td>" . $compte->getDevise() . "</td>";
 
-        $result .= "</tr>";
+ // Afficher les informations du titulaire
+ public function afficherInfos(): string {
+    $age = $this->dateNaissance->diff(new DateTime())->y;
+    return "<div class='titulaire'>
+                <p><strong>Nom:</strong> {$this->nom}</p>
+                <p><strong>Prénom:</strong> {$this->prenom}</p>
+                <p><strong>Âge:</strong> {$age} ans</p>
+                <p><strong>Ville:</strong> {$this->ville}</p>
+            </div>";
+}
+
+// Afficher les comptes bancaires du titulaire
+public function afficherComptes(): string {
+    $result = "<div class='comptes'><h3>Comptes bancaires:</h3><ul>";
+    foreach ($this->comptes as $compte) {
+        $result .= "<li>" . $compte->getLibelle() . " - " . $compte->getSoldeInitial() . " " . $compte->getDevise() . "</li>";
     }
-    $result .= "</table>";
+    $result .= "</ul></div>";
     return $result;
 }
 

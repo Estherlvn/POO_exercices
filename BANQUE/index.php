@@ -9,17 +9,27 @@ spl_autoload_register(function ($class_name) {
 });
 
 // Création des titulaires
-$mariaDomingo = new Titulaire("Domingo", "Maria", new DateTime("1990-01-01"),"Madrid");
-$andréMarchand = new Titulaire("Marchand", "André", new DateTime("1978-02-02"), "Bordeaux");
+$titulaire1 = new Titulaire("Domingo", "Maria", new DateTime("1990-01-01"), "Madrid");
+$titulaire2 = new Titulaire("Marchand", "André", new DateTime("1978-02-02"), "Bordeaux");
 
 // Création de plusieurs comptes
-$Compte = new Compte("Compte Courant", "1100", "€", $mariaDomingo);
-$caisseEtranger = new Compte("Livret A", "8500", "€", $mariaDomingo);
+$compte1 = new Compte("Compte Courant", 1100, "€", $titulaire1);
+$compte2 = new Compte("Livret A", 8500, "€", $titulaire1);
+$compte3 = new Compte("Compte Courant", 11330.55, "€", $titulaire2);
 
-$caisseEpargne = new Compte("Compte Courant", "11330.55", "€", $andréMarchand);
+// Afficher les infos titulaires et leurs comptes bancaires
+echo $titulaire1->afficherInfos();
+echo $titulaire1->afficherComptes();
 
-// Afficher les comptes bancaires des titulaires
-echo $mariaDomingo->afficherComptesBancaires();
-echo $andréMarchand->afficherComptesBancaires();
+echo $titulaire2->afficherInfos();
+echo $titulaire2->afficherComptes();
+
+// Crédite et débite des comptes
+$compte1->crediter(200); // Créditer 200 euros
+$compte2->debiter(500); // Débiter 500 euros
+
+// Afficher les comptes après opérations
+echo $compte1->afficherInfos();
+echo $compte2->afficherInfos();
 
 ?>

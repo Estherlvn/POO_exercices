@@ -9,7 +9,6 @@ class Compte {
     private Titulaire $titulaire;
 
     // constructeur
-
     public function __construct(string $libelle, float $soldeInitial, string $devise, Titulaire $titulaire) {
         $this->libelle = $libelle;
         $this->soldeInitial = $soldeInitial;
@@ -20,59 +19,70 @@ class Compte {
     }
 
     // GETTERS et SETTERS
-
-    public function getLibelle()
-    {
+    public function getLibelle() {
         return $this->libelle;
     }
 
-    public function setLibelle($libelle)
-    {
+    public function setLibelle($libelle) {
         $this->libelle = $libelle;
-
         return $this;
     }
 
-    public function getSoldeInitial()
-    {
+    public function getSoldeInitial() {
         return $this->soldeInitial;
     }
 
-    public function setSoldeInitial($soldeInitial)
-    {
+    public function setSoldeInitial($soldeInitial) {
         $this->soldeInitial = $soldeInitial;
-
         return $this;
     }
 
-    public function getDevise()
-    {
+    public function getDevise() {
         return $this->devise;
     }
 
-    public function setDevise($devise)
-    {
+    public function setDevise($devise) {
         $this->devise = $devise;
-
         return $this;
     }
 
-    public function getTitulaire()
-    {
+    public function getTitulaire() {
         return $this->titulaire;
     }
 
-    public function setTitulaire($titulaire)
-    {
+    public function setTitulaire($titulaire) {
         $this->titulaire = $titulaire;
-
         return $this;
     }
 
-    // Fonction méthode __toString
+    // Méthode pour créditer le compte
+    public function crediter(float $montant): void {
+        if ($montant > 0) {
+            $this->soldeInitial += $montant;
+        }
+    }
 
+    // Méthode pour débiter le compte
+    public function debiter(float $montant): void {
+        if ($montant > 0 && $this->soldeInitial >= $montant) {
+            $this->soldeInitial -= $montant;
+        } else {
+            throw new Exception("Fonds insuffisants pour le débit.");
+        }
+    }
+
+    // Afficher les informations du compte
+    public function afficherInfos(): string {
+        return "<div class='compte'>
+                    <p><strong>Libellé:</strong> {$this->libelle}</p>
+                    <p><strong>Solde actuel:</strong> {$this->soldeInitial} {$this->devise}</p>
+                    <p><strong>Titulaire:</strong> {$this->titulaire->getNom()} {$this->titulaire->getPrenom()}</p>
+                </div>";
+    }
+
+    // Fonction méthode __toString
     public function __toString() {
-        return "Libelle du compte: " . $this->libelle . "\n" .
+        return "Libelle du compte: " . $this->libelle . "\n" . 
                "Solde Initial: " . $this->soldeInitial . "\n" . 
                "Devise: " . $this->devise . "\n";
     }
