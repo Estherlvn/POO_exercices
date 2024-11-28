@@ -17,6 +17,21 @@ $compte1 = new Compte("Compte Courant", 1100, "€", $titulaire1);
 $compte2 = new Compte("Livret A", 8500, "€", $titulaire1);
 $compte3 = new Compte("Compte Courant", 11330.55, "€", $titulaire2);
 
+// Opération d'un compte à un autre
+// Affichage des soldes avant l'opération
+echo "<p style='font-size: 1.5em;'>Solde avant opérations :</p>";
+echo "<p style='font-size: 1.5em; color: blue;'>Compte 1 : " . $compte1->afficherInfos() . "</p>";
+echo "<p style='font-size: 1.5em; color: blue;'>Compte 2 : " . $compte2->afficherInfos() . "</p>";
+
+// Effectuer le virement de 200 euros de compte1 à compte2
+$compte1->virement($compte2, 200);
+
+// Affichage des soldes après l'opération
+echo "<p style='font-size: 1.5em;'>Solde après opérations :</p>";
+echo "<p style='font-size: 1.5em; color: green;'>Compte 1 : " . $compte1->afficherInfos() . "</p>";
+echo "<p style='font-size: 1.5em; color: green;'>Compte 2 : " . $compte2->afficherInfos() . "</p>";
+
+// AFFICHAGE
 // Afficher les infos titulaires et leurs comptes bancaires
 echo $titulaire1->afficherInfos();
 echo $titulaire1->afficherComptes();
@@ -24,12 +39,13 @@ echo $titulaire1->afficherComptes();
 echo $titulaire2->afficherInfos();
 echo $titulaire2->afficherComptes();
 
-// Crédite et débite des comptes
-$compte1->crediter(200); // Créditer 200 euros
+// Créditer et débiter des comptes
+$compte1->crediter(800); // Créditer 800 euros
 $compte2->debiter(500); // Débiter 500 euros
 
-// Afficher les comptes après opérations
-echo $compte1->afficherInfos();
-echo $compte2->afficherInfos();
+// Afficher les comptes après opérations de crédit et de débit
+echo "<p style='font-size: 1.5em; color: green;'>Solde après crédit et débit :</p>";
+echo "<p style='font-size: 1.5em; color: green;'>Compte 1 : " . $compte1->afficherInfos() . "</p>";
+echo "<p style='font-size: 1.5em; color: green;'>Compte 2 : " . $compte2->afficherInfos() . "</p>";
 
 ?>

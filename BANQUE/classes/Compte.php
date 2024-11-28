@@ -71,6 +71,12 @@ class Compte {
         }
     }
 
+    // Méthode pour les opérations d'un compte à un autre
+    public function virement(Compte $compteCible, float $montant) {
+        $this->debiter($montant); // on débite le compte source
+        $compteCible->crediter($montant); // on crédite le compte cible
+    }
+
     // Afficher les informations du compte
     public function afficherInfos(): string {
         return "<div class='compte'>
