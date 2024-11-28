@@ -12,6 +12,7 @@ spl_autoload_register(function ($class_name) {
 $titulaire1 = new Titulaire("Domingo", "Maria", new DateTime("1990-01-01"), "Madrid");
 $titulaire2 = new Titulaire("Marchand", "André", new DateTime("1978-02-02"), "Bordeaux");
 
+
 // Création de plusieurs comptes
 $compte1 = new Compte("Compte Courant", 1100, "€", $titulaire1);
 $compte2 = new Compte("Livret A", 8500, "€", $titulaire1);
