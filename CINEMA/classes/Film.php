@@ -7,14 +7,18 @@ class Film {
     protected int $duree;
     protected string $synopsis;
     protected Realisateur $realisateur;
+    protected Genre $genre;
 
     // CONSTRUCTEUR
-    public function __construct(string $titre, DateTime $dateS, int $duree, string $synopsis, Realisateur $realisateur) {
+    public function __construct(string $titre, DateTime $dateS, int $duree, string $synopsis, Realisateur $realisateur, Genre $genre) {
         $this->titre = $titre;
         $this->dateS = $dateS;
         $this->duree = $duree;
         $this->synopsis = $synopsis;
         $this->realisateur = $realisateur;
+        $this->realisateur->ajouterFilm($this); // Ajout du film au réalisateur
+        $this->genre = $genre;
+        $this->genre->ajouterFilm($this); // Ajout du film au genre
     }
 
     // GETTERS ET SETTERS
@@ -63,13 +67,23 @@ class Film {
         return $this;
     }
 
+    public function getGenre(): Genre {
+        return $this->genre;
+    }
+
+    public function setGenre(Genre $genre): self {
+        $this->genre = $genre;
+        return $this;
+    }
+
     // METHODE __toString()
     public function __toString(): string {
         return "<strong>" . $this->titre . "</strong><br>
                 Sortie: " . $this->dateS->format('Y-m-d') . "<br>
                 Durée: " . $this->duree . " minutes<br>
                 Synopsis: " . $this->synopsis . "<br>
-                Réalisateur: " . $this->realisateur->getPrenom() . " " . $this->realisateur->getNom() . "<br>";
+                Réalisateur: " . $this->realisateur->getPrenom() . " " . $this->realisateur->getNom() . "<br>
+                Genre: " . $this->genre->getNom() . "<br>";
     }
 }
 

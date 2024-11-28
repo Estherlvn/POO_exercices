@@ -3,21 +3,17 @@
 class Realisateur extends Personne {
     private array $films;
 
-    public function __construct(string $nom, string $prenom, string $sexe, DateTime $dateNaissance) {
-        parent::__construct($nom, $prenom, $sexe, $dateNaissance);
+    public function  __construct(string $nom, string $prenom, string $sexe, DateTime $dateN) {
+        parent::__construct($nom, $prenom, $sexe, $dateN);
         $this->films = [];
     }
 
-    public function ajouterFilm(Film $film): void {
+    public function ajouterFilm(Film $film) {
         $this->films[] = $film;
     }
 
-    public function getFilms(): array {
-        return $this->films;
-    }
-
     public function afficherFilms(): string {
-        $result = "<h2>Films réalisés par {$this->prenom} {$this->nom}</h2><ul>";
+        $result = "<h2>Films de " . $this->getPrenom() . " " . $this->getNom() . ":</h2><ul>";
         foreach ($this->films as $film) {
             $result .= "<li>" . $film->getTitre() . " (" . $film->getDateS()->format('Y') . ")</li>";
         }
@@ -25,3 +21,4 @@ class Realisateur extends Personne {
         return $result;
     }
 }
+?>
