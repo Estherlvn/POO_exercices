@@ -11,17 +11,25 @@ spl_autoload_register(function ($class_name) {
 $real1 = new Realisateur("Lucas", "George", "H", new DateTime("1944-05-14"));
 $real2 = new Realisateur("Jackson", "Peter", "H", new DateTime("1961-10-31"));
 
-/*
 // création d'une liste de personnes 
 $acteur1 = new Acteur("Portman", "Nathalie", "F", new DateTime("1981-06-09"));
 $acteur2 = new Acteur("McGregor", "Ewan", "H", new DateTime("1971-03-31"));
 $acteur3 = new Acteur("Lee", "Christopher", "H", new DateTime("1922-05-27"));
 $acteur4 = new Acteur("Mortensen", "Viggo", "H", new DateTime("1958-10-20"));
-*/
 
 // création d'une liste de genre
 $genre1 = new Genre("Science-Fiction");
 $genre2 = new Genre("Médiéval-Fantastique");
+
+// Création des rôles
+$role1 = new Role("Padmé Amidala");
+$role2 = new Role("Obi-Wan Kenobi");
+$role3 = new Role("Saruman");
+$role4 = new Role("Aragorn");
+
+// Création des castings
+/*$casting1 = new Casting("Star Wars: L'Attaque des clones",);*/
+
 
 // création d'une liste de films
 $film1 = new Film("Star Wars: L'Attaque des clones", new DateTime("2002-05-16"), 142, "Depuis le blocus de la planète Naboo, la République,
@@ -38,11 +46,14 @@ jusqu'à la Montagne du Destin pour le détruire.", $real2, $genre2);
 
 $film3 = new Film("The Hobbit", new DateTime("2013-12-11"), 161, "Synopsis", $real2, $genre2);
 
+
 // AFFICHAGE
 echo $real1->afficherFilms();
 echo $real2->afficherFilms();
 echo $genre1->afficherFilms();
 echo $genre2->afficherFilms();
+
+echo $role1->afficherActeurs();
 
 
 ?>
