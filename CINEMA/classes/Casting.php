@@ -20,7 +20,7 @@ class Casting {
         return $this->film;
     }
 
-    public function setFilm(Film $film): self {
+    public function setFilm(Film $film): string {
         $this->film = $film;
         return $this;
     }
@@ -29,7 +29,7 @@ class Casting {
         return $this->acteur;
     }
 
-    public function setActeur(Acteur $acteur): self {
+    public function setActeur(Acteur $acteur): string {
         $this->acteur = $acteur;
         return $this;
     }
@@ -38,7 +38,7 @@ class Casting {
         return $this->role;
     }
 
-    public function setRole(Role $role): self {
+    public function setRole(Role $role): string {
         $this->role = $role;
         return $this;
     }

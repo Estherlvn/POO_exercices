@@ -8,6 +8,7 @@ class Film {
     protected string $synopsis;
     protected Realisateur $realisateur;
     protected Genre $genre;
+    protected array $castings = []; // New attribute to store castings
 
     // CONSTRUCTEUR
     public function __construct(string $titre, DateTime $dateS, int $duree, string $synopsis, Realisateur $realisateur, Genre $genre) {
@@ -74,6 +75,14 @@ class Film {
     public function setGenre(Genre $genre): self {
         $this->genre = $genre;
         return $this;
+    }
+
+    public function ajouterCasting($casting): void {
+        $this->castings[] = $casting;
+    }
+
+    public function getCastings(): array {
+        return $this->castings;
     }
 
     // METHODE __toString()

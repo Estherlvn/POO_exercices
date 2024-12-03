@@ -22,7 +22,7 @@ class Role {
     }
 
     public function afficherActeurs(): string {
-        $result = "<h2>Acteurs jouant le rôle de " . $this->nom . ":</h2><ul>";
+        $result = "<h2>Acteurs ayant joué le rôle de " . $this->nom . ":</h2><ul>";
         foreach ($this->castings as $casting) {
             $acteur = $casting->getActeur();
             $result .= "<li>" . $acteur->getPrenom() . " " . $acteur->getNom() . " dans le film " . $casting->getFilm()->getTitre() . "</li>";

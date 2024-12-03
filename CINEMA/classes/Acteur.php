@@ -17,7 +17,7 @@ class Acteur extends Personne {
     public function afficherFilms(): string {
         $result = "<h2>Films avec " . $this->prenom . " " . $this->nom . ":</h2><ul>";
         foreach ($this->castings as $casting) {
-            $result .= "<li>" . $casting->getFilm()->getTitre() . " (" . $casting->getFilm()->getDateS()->format('Y') . ") as " . $casting->getRole()->getNom() . "</li>";
+            $result .= "<li>" . $casting->getFilm()->getTitre() . " (" . $casting->getFilm()->getDateS()->format('Y') . ") : dans le rôle de " . $casting->getRole()->getNom() . "</li>";
         }
         $result .= "</ul>";
         return $result;

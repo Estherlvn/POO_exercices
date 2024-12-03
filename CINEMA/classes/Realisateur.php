@@ -13,7 +13,7 @@ class Realisateur extends Personne {
     }
 
     public function afficherFilms(): string {
-        $result = "<h2>Films de " . $this->getPrenom() . " " . $this->getNom() . ":</h2><ul>";
+        $result = "<h2>Filmographie de " . $this->getPrenom() . " " . $this->getNom() . ":</h2><ul>";
         foreach ($this->films as $film) {
             $result .= "<li>" . $film->getTitre() . " (" . $film->getDateS()->format('Y') . ")</li>";
         }
