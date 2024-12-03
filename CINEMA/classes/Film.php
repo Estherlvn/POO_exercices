@@ -8,7 +8,7 @@ class Film {
     protected string $synopsis;
     protected Realisateur $realisateur;
     protected Genre $genre;
-    protected array $castings = []; // New attribute to store castings
+    protected array $castings = []; // attribut ajouté pour stocker Casting
 
     // CONSTRUCTEUR
     public function __construct(string $titre, DateTime $dateS, int $duree, string $synopsis, Realisateur $realisateur, Genre $genre) {
@@ -77,6 +77,9 @@ class Film {
         return $this;
     }
 
+
+    // Ajouter Casting
+
     public function ajouterCasting($casting): void {
         $this->castings[] = $casting;
     }
@@ -98,6 +101,22 @@ class Film {
         return $result;
     }
     
+
+ // Afficher les informations d'un film
+public function afficherDetails(): string {
+    $result = "<h2>Détails du film " . $this->titre . ":</h2>";
+    $result .= "<ul>";
+    $result .= "<li><strong>Titre :</strong> " . $this->titre . "</li>";
+    $result .= "<li><strong>Date de sortie :</strong> " . $this->dateS->format('d-m-Y') . "</li>";
+    $result .= "<li><strong>Durée :</strong> " . $this->duree . " minutes</li>";
+    $result .= "<li><strong>Synopsis :</strong> " . $this->synopsis . "</li>";
+    $result .= "<li><strong>Réalisateur :</strong> " . $this->realisateur->getPrenom() . " " . $this->realisateur->getNom() . "</li>";
+    $result .= "<li><strong>Genre :</strong> " . $this->genre->getNom() . "</li>";
+    $result .= "</ul>";
+
+    return $result;
+}
+
 
 
     // METHODE __toString()
