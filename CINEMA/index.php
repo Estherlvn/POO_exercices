@@ -66,5 +66,8 @@ echo $role2->afficherActeurs();
 
 echo $acteur1->afficherFilms();
 echo $acteur3->afficherFilms();
+
+echo $film1->afficherCasting();
+
 ?>
 

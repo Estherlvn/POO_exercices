@@ -85,6 +85,21 @@ class Film {
         return $this->castings;
     }
 
+
+    // Afficher Casting
+    public function afficherCasting(): string {
+        $result = "<h2>Casting du film " . $this->titre . " :</h2><ul>";
+        foreach ($this->castings as $casting) {
+            $acteur = $casting->getActeur();
+            $role = $casting->getRole();
+            $result .= "<li>" . $acteur->getNom() . " " . $acteur->getPrenom() . " : dans le rôle de " . $role->getNom() . "</li>";
+        }
+        $result .= "</ul>";
+        return $result;
+    }
+    
+
+
     // METHODE __toString()
     public function __toString(): string {
         return "<strong>" . $this->titre . "</strong><br>
